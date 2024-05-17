@@ -8,19 +8,18 @@ cd 2023_wa_sx_chalupnicek_gaflix/
 py -3 -m venv venv
 source ./venv/Scripts/activate
 pip install -r requirements.txt
+./manage.py migrate
+./manage.py createsuperuser
+./manage.py runserver
 ```
 
 ## Spuštění projektu
 
 ```
+git pull
+source ./venv/Scripts/activate
 ./manage.py migrate
 ./manage.py runserver
-```
-
-## Vytvoření admin usera
-
-```
-./manage.py createsuperuser
 ```
 
 ## Po změně `models.py`

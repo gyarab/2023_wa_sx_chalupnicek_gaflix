@@ -23,6 +23,8 @@ services:
       - "traefik.http.routers.wa-vch1-https.entrypoints=websecure"
       - "traefik.http.routers.wa-vch1-https.tls=true"
       - "traefik.http.routers.wa-vch1-https.tls.certresolver=letsencrypt"
+    networks:
+      - default
 
   static:
     image: nginx:alpine
@@ -45,3 +47,10 @@ services:
       - "traefik.http.routers.wa-vch1-static-https.entrypoints=websecure"
       - "traefik.http.routers.wa-vch1-static-https.tls=true"
       - "traefik.http.routers.wa-vch1-static-https.tls.certresolver=letsencrypt"
+    networks:
+      - default
+
+networks:
+  default:
+    name: gateway
+    external: true
